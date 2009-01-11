@@ -20,6 +20,22 @@ class PollsterGenerator < Rails::Generator::NamedBase
         m.directory(File.join('spec/models'))
         m.directory(File.join('spec/helpers'))
         m.directory(File.join('spec/views'))
+        m.directory(File.join("spec/views/#{table_name}"))
+        
+        # Controllers
+        m.template "spec/polls_controller_spec.rb", File.join('spec/controllers', "#{table_name}_controller_spec.rb")
+
+        # Models
+        m.template "spec/poll_spec.rb", File.join('spec/models', "#{table_name.singularize}_spec.rb")
+        m.template "spec/poll_vote_spec.rb", File.join('spec/models', "#{table_name.singularize}_vote_spec.rb")
+
+        # Helpers
+        m.template "spec/polls_helper_spec.rb", File.join('spec/helpers', "#{table_name}_helper_spec.rb")
+
+        # Views
+        for view in views
+          m.template "spec/views/#{view}.html.haml_spec.rb", File.join("spec/views/#{table_name}", "#{view}.html.haml_spec.rb")
+        end
       end
       
       # Controllers
@@ -30,7 +46,7 @@ class PollsterGenerator < Rails::Generator::NamedBase
       m.template "poll_vote.rb", File.join('app/models', "#{table_name.singularize}_vote.rb")
       
       # Helpers
-      m.template "polls_helper.rb", File.join('app/helpers/', "#{table_name}_helper.rb")
+      m.template "polls_helper.rb", File.join('app/helpers', "#{table_name}_helper.rb")
       
       # Migrations
       m.migration_template "create_pollster_tables.rb", "db/migrate", :migration_file_name => "create_pollster_tables"
@@ -45,6 +61,10 @@ class PollsterGenerator < Rails::Generator::NamedBase
   
   def table_name
     class_name.tableize
+  end
+  
+  def model_name 
+    class_name.demodulize
   end
   
   def object_name
@@ -65,10 +85,6 @@ class PollsterGenerator < Rails::Generator::NamedBase
   
   def views
     %w[ _current_results _final_results _option_form _poll _vote edit index new ]
-  end
-
-  def model_name 
-    class_name.demodulize
   end
   
   protected
