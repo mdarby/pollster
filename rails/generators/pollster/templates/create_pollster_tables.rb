@@ -1,6 +1,6 @@
 class CreatePollsterTables < ActiveRecord::Migration
   def self.up
-    create_table :polls do |t|
+    create_table :<%= table_name %> do |t|
       t.string :name
       t.text :description
       t.text :options
@@ -10,17 +10,17 @@ class CreatePollsterTables < ActiveRecord::Migration
       t.timestamps
     end
     
-    create_table :poll_votes do |t|
+    create_table :<%= object_name %>_votes do |t|
       t.integer :user_id
       t.string :vote
-      t.integer :poll_id
+      t.integer :<%= object_name %>_id
 
       t.timestamps
     end
   end
 
   def self.down
-    drop_table :polls
-    drop_table :poll_votes
+    drop_table :<%= table_name %>
+    drop_table :<%= table_name %>_votes
   end
 end
