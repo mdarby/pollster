@@ -1,41 +1,41 @@
-class PollsController < ApplicationController
+class <%= class_name.pluralize %>Controller < ApplicationController
   
   before_filter :load_items
   
   def load_items
-    @poll = Poll.find(params[:id]) if params[:id]
+    @<%= object_name %> = <%= class_name %>.find(params[:id]) if params[:id]
   end
   
   def index
-    @polls = Poll.visible
+    @<%= object_name %>s = <%= class_name %>.visible
   end
 
   def show
-    redirect_to polls_path
+    redirect_to <%= object_name %>s_path
   end
 
   def new
-    @poll = Poll.new
+    @<%= object_name %> = <%= class_name %>.new
   end
 
   def edit
   end
 
   def create
-    @poll = Poll.new(params[:poll])
+    @<%= object_name %> = <%= class_name %>.new(params[:<%= object_name %>])
 
-    if @poll.save
-      flash[:notice] = "Poll successfully created"
-      redirect_to polls_path
+    if @<%= object_name %>.save
+      flash[:notice] = "<%= class_name %> successfully created"
+      redirect_to <%= object_name %>s_path
     else
       render :action => "new"
     end
   end
 
   def update
-    if @poll.update_attributes(params[:poll])
-      flash[:notice] = 'Poll was successfully updated.'
-      redirect_to polls_path
+    if @<%= object_name %>.update_attributes(params[:<%= object_name %>])
+      flash[:notice] = '<%= class_name %> was successfully updated.'
+      redirect_to <%= object_name %>s_path
     else
       flash[:error] = "An error occurred"
       render :action => "edit"
@@ -43,13 +43,13 @@ class PollsController < ApplicationController
   end
 
   def destroy
-    @poll.destroy
-    redirect_to polls_path
+    @<%= object_name %>.destroy
+    redirect_to <%= object_name %>s_path
   end
   
   def vote
-    unless @poll.has_already_voted?(current_user)
-      v = @poll.votes.build(:user => current_user, :vote => params[:poll]["vote"])
+    unless @<%= object_name %>.has_already_voted?(current_user)
+      v = @<%= object_name %>.votes.build(:user => current_user, :vote => params[:<%= object_name %>]["vote"])
     
       if v.save
         flash[:notice] = "Vote cast!"
@@ -58,7 +58,7 @@ class PollsController < ApplicationController
       end
     end
     
-    redirect_to polls_path
+    redirect_to <%= object_name %>s_path
   end
   
 end

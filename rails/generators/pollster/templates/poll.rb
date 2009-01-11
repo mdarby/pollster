@@ -1,23 +1,8 @@
-# == Schema Information
-# Schema version: 20090109155322
-#
-# Table name: polls
-#
-#  id            :integer(4)      not null, primary key
-#  name          :string(255)
-#  description   :text
-#  options       :text
-#  ends_at       :date
-#  created_at    :datetime
-#  updated_at    :datetime
-#  created_by_id :integer(4)
-#
-
-class Poll < ActiveRecord::Base
+class <%= class_name %> < ActiveRecord::Base
   
   serialize :options
   
-  has_many :votes, :class_name => 'PollVote', :dependent => :destroy
+  has_many :votes, :class_name => "<%= class_name %>Vote", :dependent => :destroy
   has_many :voters, :through => :votes, :source => :user
   belongs_to :author, :foreign_key => 'created_by_id', :class_name => 'User'
   
