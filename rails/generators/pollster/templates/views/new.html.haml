@@ -1,0 +1,28 @@
+- add_crumb("Polls", polls_path)
+- add_crumb("New", new_poll_path)
+
+= title_block("New poll")
+
+- form_for(@poll, :builder => CcwFormBuilder) do |f|
+  = f.error_messages
+    
+  = f.hidden_field :created_by_id, :value => current_user.id
+  = f.text_field :name
+  
+  = box("Ending At:") do
+    = calendar_date_select_tag "poll[ends_at]", "", :popup => "force"   
+  
+  = f.text_area :description
+  
+  = box("Candidates") do
+    #options
+      - 2.times do
+        = render :partial => 'option_form', :locals => {:option => []}
+      
+    %br
+    = add_option_link(@poll, "Add an option")
+  
+  %p
+    = f.submit "Create"
+    == -or-
+    = link_to "Cancel", polls_path
