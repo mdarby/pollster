@@ -25,15 +25,15 @@ class PollsterGenerator < Rails::Generator::Base
         m.directory(File.join('spec/views'))
       end
       
-      m.template "polls_controller.rb", File.join('app/controllers', "polls_controller.rb")
-      m.template "poll.rb", File.join('app/models', "poll.rb")
-      m.template "poll_vote.rb", File.join('app/models', "poll_vote.rb")
-      m.template "polls_helper.rb", File.join('app/helpers', "polls_helper.rb")
+      m.file "polls_controller.rb", File.join('app/controllers', "polls_controller.rb")
+      m.file "poll.rb", File.join('app/models', "poll.rb")
+      m.file "poll_vote.rb", File.join('app/models', "poll_vote.rb")
+      m.file "polls_helper.rb", File.join('app/helpers', "polls_helper.rb")
       
-      m.template "create_pollster_tables.rb", File.join('db/migrate', "#{timestamp}_create_pollster_tables.rb")
+      m.file "create_pollster_tables.rb", File.join('db/migrate', "#{timestamp}_create_pollster_tables.rb")
       
       for view in views
-        m.template "views/#{view}.html.haml", File.join('app/views/polls', "#{view}.html.haml")
+        m.file "views/#{view}.html.haml", File.join('app/views/polls', "#{view}.html.haml")
       end
       
     end
