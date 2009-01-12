@@ -8,11 +8,10 @@ pollster adds a generator to your Rails app that creates the MVC stack for polli
 
 h3. Requirements
 
-pollster requires the super amazing "RESTful_Authentication":http://weblog.techno-weenie.net/2006/8/1/restful-authentication-plugin plugin, along with the "googlecharts":http://github.com/mattetti/googlecharts/tree/master gem.
+pollster requires the super amazing "RESTful_Authentication":http://weblog.techno-weenie.net/2006/8/1/restful-authentication-plugin plugin.
 
 <pre>
   ./script/plugin install git://github.com/technoweenie/restful-authentication.git
-  sudo gem install mattetti-googlecharts
 </pre>
 
 Make sure to follow the instructions on RESTful_Authentication, and add this line to your config/environment.rb file:

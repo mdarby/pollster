@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = "pollster"
-  s.version  = "0.1.1"
+  s.version  = "0.1.2"
   s.date     = "2009-01-11"
   s.summary  = "Easy user polling for your Rails app"
   s.email    = "matt@matt-darby.com"
@@ -36,4 +36,17 @@ Gem::Specification.new do |s|
     "generators/pollster/USAGE",
     "uninstall.rb"
   ]
+  
+  if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
+    s.specification_version = 2
+
+    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<googlecharts>, ["~> 1.3.6"])
+    else
+      s.add_dependency(%q<json>, ["~> 1.3.6"])
+    end
+  else
+    s.add_dependency(%q<json>, ["~> 1.3.6"])
+  end
 end
