@@ -1,28 +1,28 @@
 <div style="width: 500px; margin: auto; margin-bottom: 20px;" id="<%%= dom_id(<%= object_name %>) %>">
   <%%= <%= object_name %>.name %>
-  Ends on #{<%= object_name %>.ends_at}
+  Ends on <%%= <%= object_name %>.ends_at %>
   
   <hr/>
   
   <p>
-    <%%= auto_link expand <%= object_name %>.description %>
+    <%%= <%= object_name %>.description %>
   </p>
   
   <hr/>
   
-  <%%= if <%= object_name %>.can_by_voted_on_by(current_user) %>
+  <%% if <%= object_name %>.can_by_voted_on_by(current_user) %>
     <div id="cast_vote_div">
       <%%= render :partial => "vote", :locals => {:<%= object_name %> => <%= object_name %>} %>
     </div>
   <%% end %>
   
-  <%%= if <%= object_name %>.has_already_voted?(current_user) %>
+  <%% if <%= object_name %>.has_already_voted?(current_user) %>
     <div id="current_results_div">
       <%%= render :partial => "current_results", :locals => {:<%= object_name %> => <%= object_name %>} %>
     </div>
   <%% end %>
   
-  <%%= unless <%= object_name %>.active? %>
+  <%% unless <%= object_name %>.active? %>
     <div id="winner_div">
       <%%= render :partial => "final_results", :locals => {:<%= object_name %> => <%= object_name %>} %>
     </div>

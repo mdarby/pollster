@@ -24,7 +24,8 @@ class PollsterGenerator < Rails::Generator::NamedBase
         
         # Controllers
         m.template "spec/polls_controller_spec.rb", File.join('spec/controllers', "#{table_name}_controller_spec.rb")
-
+        m.template "spec/polls_routing_spec.rb", File.join('spec/controllers', "#{table_name}_routing_spec.rb")
+        
         # Models
         m.template "spec/poll_spec.rb", File.join('spec/models', "#{table_name.singularize}_spec.rb")
         m.template "spec/poll_vote_spec.rb", File.join('spec/models', "#{table_name.singularize}_vote_spec.rb")

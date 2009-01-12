@@ -6,6 +6,7 @@ class CreatePollsterTables < ActiveRecord::Migration
       t.text :options
       t.date :ends_at
       t.text :string
+      t.integer :created_by_id
       
       t.timestamps
     end

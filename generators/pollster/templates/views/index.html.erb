@@ -1,0 +1,5 @@
+<h1>Listing <%= table_name %></h1>
+
+<%%= render :partial => "<%= object_name %>", :collection => @<%= object_name %>s %>
+
+<%%= link_to "new", new_<%= object_name %>_path %>

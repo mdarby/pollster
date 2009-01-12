@@ -1,9 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe PollVote do
+describe <%= class_name %>Vote do
   
   before do
-    @vote = Factory(:poll_vote)
+    @vote = <%= class_name %>Vote.new(:user_id => 1, :<%= object_name %>_id => 1)
   end
   
   it "should be valid" do
@@ -14,8 +14,8 @@ describe PollVote do
     @vote.should respond_to(:user)
   end
   
-  it "should know about the Poll" do
-    @vote.should respond_to(:poll)
+  it "should know about the <%= class_name %>" do
+    @vote.should respond_to(:<%= object_name %>)
   end
   
 end

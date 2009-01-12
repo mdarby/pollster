@@ -1,0 +1,38 @@
+<h1>Edit <%= object_name %></h1>
+
+<%% form_for(@<%= object_name %>) do |f| %>
+  <%%= f.hidden_field :created_by_id, :value => current_user.id %>
+  
+  <p>
+    <%%= f.label :name %>
+    <%%= f.text_field :name %>
+  </p>
+  
+  <p>  
+    <%%= f.label :ends_at %>
+    <%%= f.text_field :ends_at %>
+  </p>
+  
+  <p>  
+    <%%= f.label :description %>
+    <%%= f.text_area :description %>
+  </p>
+  
+  <p>  
+    <%%= f.label :options %>
+    <div id="options"></div>
+      <%% @<%= object_name %>.options.each do |option| %>
+        <%%= render :partial => 'option_form', :locals => {:option => option} %>
+      <%% end %>
+    </div>
+    
+    <br />
+    <%%= add_option_link(@<%= object_name %>, "Add an option") %>
+  </p>
+    
+  <p>
+    <%%= f.submit "Save" %>
+    -or-
+    <%%= link_to "Cancel", <%= object_name %>s_path %>
+  </p>
+<%% end %>

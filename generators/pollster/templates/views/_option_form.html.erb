@@ -1,0 +1,7 @@
+<div id="option">
+  <%% fields_for "<%= object_name %>[options][]", option, :index => nil do |f| %>
+    <%%= f.text_field :options, :value => option %>
+    <%%= link_to_function "Remove", "$(this).up('.option').remove()" %>
+    <br/>
+  <%% end %>
+</div>
