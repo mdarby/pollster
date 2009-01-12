@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = "pollster"
-  s.version  = "0.1"
+  s.version  = "0.1.1"
   s.date     = "2009-01-11"
   s.summary  = "Easy user polling for your Rails app"
   s.email    = "matt@matt-darby.com"
