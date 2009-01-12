@@ -1,0 +1,16 @@
+<%% if <%= object_name %>.ends_in_tie? %>
+  <center>
+    We have a tie between
+    <b>
+      <%%= <%= object_name %>.winners.to_sentence %>!
+    </b>
+  </center>
+  
+<%% else %>
+  <center>
+    ...and the winner is: 
+    <b>
+      <%%= <%= object_name %>.winner %>!
+    </b>
+  </center>
+<%% end %>

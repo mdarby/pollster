@@ -1,9 +1,0 @@
-.bold.center.slightly_larger== Results after #{pluralize(poll.total_votes.to_i, 'vote')}
-.bold== Candidates:
-
-%ol
-  - poll.options.each do |option|
-    %li= option
-  
-%center    
-  = Gchart.pie_3d(:size=>'350x150', :bar_colors=>'2F87ED', :bg=>'EEEEEE', :legend=>poll.pie_legend, :data=>poll.current_results_percentages, :format=>'image_tag')

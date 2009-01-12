@@ -1,0 +1,11 @@
+<center>
+  <%%= form_for(:<%= object_name %>, :url => vote_<%= object_name %>_path(<%= object_name %>)) do |f| %>
+    <p>
+      <%%= f.select :vote, <%= object_name %>.options %>
+    </p>
+    
+    <p>
+      f.submit "Vote!"
+    </p>
+  <%% end %>
+</center>

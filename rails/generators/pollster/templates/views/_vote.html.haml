@@ -1,4 +1,0 @@
-.center
-  - form_for(:poll, :url => vote_poll_path(poll)) do |f|
-    %p= f.select :vote, poll.options
-    %p= f.submit "Vote!"

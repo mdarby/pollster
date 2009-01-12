@@ -1,5 +1,0 @@
-.option
-  - fields_for "poll[options][]", option, :index => nil do |f|
-    = f.text_field :options, :value => option
-    = link_to_function image_tag("delete.png"), "$(this).up('.option').remove()"
-    %br

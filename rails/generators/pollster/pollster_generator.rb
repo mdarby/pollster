@@ -53,7 +53,8 @@ class PollsterGenerator < Rails::Generator::NamedBase
       
       # Views
       for view in views
-        m.template "views/#{view}.html.haml", File.join("app/views/#{table_name}", "#{view}.html.haml")
+        new_name = (view == "_poll") ? "_#{object_name}" : view
+        m.template "views/#{view}.html.erb", File.join("app/views/#{table_name}", "#{view}.html.erb")
       end
       
     end

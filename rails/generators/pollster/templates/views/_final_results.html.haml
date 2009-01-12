@@ -1,9 +1,0 @@
-- if poll.ends_in_tie?
-  .center.wide_padding.even_larger
-    == We have a tie between
-    %b== #{poll.winners.to_sentence}!
-
-- else
-  .center.wide_padding.even_larger
-    == ...and the winner is: 
-    %b== #{poll.winner}!

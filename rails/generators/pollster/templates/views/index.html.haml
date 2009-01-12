@@ -1,7 +1,0 @@
-- add_crumb("Polls", polls_path)
-
-= title_block("Listing polls") do
-  - if creatable
-    = link_to "New", new_poll_path
-
-= render :partial => "poll", :collection => @polls
