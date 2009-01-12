@@ -16,6 +16,7 @@
   <%% end %>
 </ol>
 
-<center>    
-  <%%= Gchart.pie_3d(:size=>'350x150', :bar_colors=>'2F87ED', :legend=><%= object_name %>.pie_legend, :data=><%= object_name %>.current_results_percentages, :format=>'image_tag') %>
+<center>
+  <%%# The options passed here represent all those that are accepted to modify your graph %>
+  <%%= display_graph(<%= object_name %>, :size => "350x150", :base_color => "2F87ED", :bg_color => "EEEEEE") %>
 </center>
