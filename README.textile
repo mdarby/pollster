@@ -1,20 +1,29 @@
-h1. Nothing interesting here, but there is always room for Floyd.
+h2. pollster
 
-All that you touch and all that you see
-All that you taste, all you feel
+A Rails gem that generates an entire MVC stack for user polling on your app
 
-And all that you love and all that you hate
-All you distrust, all you save
+h3. What it does
 
-And all that you give and all that you deal
-And all that you buy, beg, borrow or steal
+pollster is a simple Access Control Layer for Ruby on Rails. It restricts access on a fine-grained level to any RESTful MVC stack. While the ACL structure and engine are provided by this plugin, the implementation is fully up to the user. Every application is different and everyone likes to setup their User / Account / Role resources differently; this plugin will allow you to do your thing and keep that thing locked down.
 
-And all you create and all you destroy
-And all that you do and all that you say
+h3. Requirements
 
-And all that you eat and everyone you meet
-And all that you slight and everyone you fight
+pollster requires the super amazing "RESTful_Authentication":http://weblog.techno-weenie.net/2006/8/1/restful-authentication-plugin plugin, along with the "googlecharts":http://github.com/mattetti/googlecharts/tree/master gem.
 
-And all that is now and all that is gone
-And all that's to come and everything under the sun is in tune
-But the sun is eclipsed by the moon
+h3. How to Install
+
+<pre>sudo gem install mdarby-pollster</pre>
+
+h3. How to Use
+
+<pre>./script/generate pollster WhateverYouWantToNameYourPollModel</pre>
+
+h3. How to Test
+
+Complete Rspec specs are included automatically. Well, complete aside from view specs as you'll just change the damned things anyway.
+
+h3. About the Author
+
+My name is Matt Darby. I'm the Web Developer and IT Manager at "Dynamix Engineering":http://dynamix-ltd.com and hold a Master's Degree in Computer Science from "Franklin University":http://franklin.edu in Columbus, OH.
+
+Feel free to check out my "blog":http://blog.matt-darby.com or to "recommend me":http://www.workingwithrails.com/recommendation/new/person/10908-matt-darby
