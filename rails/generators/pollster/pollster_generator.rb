@@ -31,11 +31,6 @@ class PollsterGenerator < Rails::Generator::NamedBase
 
         # Helpers
         m.template "spec/polls_helper_spec.rb", File.join('spec/helpers', "#{table_name}_helper_spec.rb")
-
-        # Views
-        for view in views
-          m.template "spec/views/#{view}.html.haml_spec.rb", File.join("spec/views/#{table_name}", "#{view}.html.haml_spec.rb")
-        end
       end
       
       # Controllers
