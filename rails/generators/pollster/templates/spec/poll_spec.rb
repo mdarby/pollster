@@ -18,26 +18,6 @@ describe Poll do
     @poll.options.is_a?(Array).should be_true
   end
 
-  it "should be readable by employees" do
-    employee = mock_model(User, :is_employee? => true)
-    Poll.is_readable_by(employee, @poll).should be_true
-  end
-  
-  it "should not be readable by non-employees" do
-    outsider = mock_model(User, :is_employee? => false)
-    Poll.is_readable_by(outsider, @poll).should be_false
-  end
-
-  it "should be creatable by Leaders or higher" do
-    leader = mock_model(User, :is_leader_or_better? => true)
-    Poll.is_creatable_by(leader).should be_true
-  end
-  
-  it "should not be readable by non-employees" do
-    employee = mock_model(User, :is_leader_or_better? => false)
-    Poll.is_creatable_by(employee).should be_false
-  end
-
   it "should know the total number of votes cast" do
     vote = mock_model(PollVote)
     @poll.stub!(:votes => [vote])

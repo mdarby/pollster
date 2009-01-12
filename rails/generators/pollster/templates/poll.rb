@@ -9,22 +9,6 @@ class <%= class_name %> < ActiveRecord::Base
   validates_presence_of :ends_at, :name, :created_by_id
   
   
-  def is_updatable_by(user)
-    user == author && !has_votes?
-  end
-
-  def is_deletable_by(user)
-    user == author && !has_votes?
-  end
-
-  def self.is_readable_by(user, object = nil)
-    user.is_employee?
-  end
-
-  def self.is_creatable_by(user)
-    user.is_leader_or_better?
-  end
-  
   def can_by_voted_on_by(user)
     active? && !has_already_voted?(user)
   end
