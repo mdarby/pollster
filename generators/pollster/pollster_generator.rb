@@ -87,7 +87,7 @@ class PollsterGenerator < Rails::Generator::NamedBase
   protected
   
     def banner
-      "Usage: #{$0} #{spec.name}"
+      "Usage: #{$0} #{spec.name} ModelName"
     end
     
 end
