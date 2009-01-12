@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = "pollster"
-  s.version  = "0.1.2"
+  s.version  = "0.1.2.1"
   s.date     = "2009-01-11"
   s.summary  = "Easy user polling for your Rails app"
   s.email    = "matt@matt-darby.com"
@@ -44,9 +44,9 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<googlecharts>, ["~> 1.3.6"])
     else
-      s.add_dependency(%q<json>, ["~> 1.3.6"])
+      s.add_dependency(%q<googlecharts>, ["~> 1.3.6"])
     end
   else
-    s.add_dependency(%q<json>, ["~> 1.3.6"])
+    s.add_dependency(%q<googlecharts>, ["~> 1.3.6"])
   end
 end
