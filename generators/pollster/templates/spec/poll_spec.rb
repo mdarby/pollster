@@ -42,12 +42,6 @@ describe <%= class_name %> do
     @<%= object_name %>.total_votes.should == 1
   end
 
-  it "should know how to shave the options yak" do
-    @<%= object_name %>.options = [{"options" => "first"}, {"options" => "second"}, {"options" => "third"}]
-    @<%= object_name %>.save
-    @<%= object_name %>.options.should == ["first", "second", "third"]
-  end
-
   it "should be visible for a week after its end date" do
     Date.stub!(:today => Date.parse("2009-01-09"))
     @<%= object_name %>.stub!(:ends_at => Date.parse("2009-01-07"))

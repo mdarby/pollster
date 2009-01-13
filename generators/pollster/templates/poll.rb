@@ -97,8 +97,4 @@ class <%= class_name %> < ActiveRecord::Base
     total_votes > 0
   end
   
-  def options=(arr)
-    write_attribute(:options, [*arr].map{|x| x["options"]})
-  end
-  
 end
